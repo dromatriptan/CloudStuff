@@ -1,23 +1,3 @@
-<#
-    1. Download and Install Windows ADK on Build Machine (not the system you seek capturing)
-        a. https://learn.microsoft.com/en-us/windows-hardware/get-started/adk-install
-    2. Prepare your Windows PE Media
-        a. Include ImageX.exe
-        b. Include the WinPE Optional Components (i.e., PowerShell, DISM, etc.)
-        c. Create a bootable ISO
-    3. Build your VM as neeeded
-    4. Prepare the Image for Azure
-        a. PrepareImageForAzure.ps1 (* Your Are Here)
-    5. Sysprep /OOBE /Generalize
-    6. Boot VM with WinPE ISO
-        a. ImageX.exe /Capture /Compress Maximum C: "\\PATH\TO\SHARE\CustomWindowsBuild.wim" "FIRM - Windows 10 22H2 2024.01.23"
-    7. Use CreateVHD-GPT.ps1 script to:
-        a. Create an Azure-ready VHD
-        b. Apply your custom image to this VHD
-    8. Upload VHD to Azure AVD workspace
-    9. Test it, kick the tires, then use CreateAzureImage.ps1 to build your AVD image for use in Session Host Pool(s)
-#>
-
 # https://docs.microsoft.com/en-us/azure/virtual-machines/windows/prepare-for-upload-vhd-image
 
 & sfc.exe  /scannow
